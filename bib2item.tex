@@ -1,0 +1,941 @@
+% Choose the journal abbreviation for the journal you are
+% submitting to:
+% jgrga JOURNAL OF GEOPHYSICAL RESEARCH
+% gbc   GLOBAL BIOCHEMICAL CYCLES
+% grl   GEOPHYSICAL RESEARCH LETTERS
+% pal   PALEOCEANOGRAPHY
+% ras   RADIO SCIENCE
+% rog   REVIEWS OF GEOPHYSICS
+% tec   TECTONICS
+% wrr   WATER RESOURCES RESEARCH
+% gc    GEOCHEMISTRY, GEOPHYSICS, GEOSYSTEMS
+% (If you are submitting to a journal other than jgrga,
+% substitute the initials of the journal for "jgrga" below)
+%\documentclass[draft,jgrga]{AGUTeX}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% optional article formats author might want to use
+% To produce a galley version:
+% \documentclass[galley,jgrga]{AGUTeX}
+% To produce a two columned version:
+% \documentclass[jgrga]{AGUTeX}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%oceandynamics
+\documentclass[final]{svjour3}
+%\usepackage{newclude}
+%\documentclass[twocolumn,final]{svjour3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{newclude}
+%
+%use with \include*{filename}      % will not add page breaks
+\smartqed
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{natbib}
+\usepackage{amsmath}
+\usepackage{subfig}
+\usepackage{nicefrac}
+\usepackage{lineno}
+\usepackage{rotating}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+
+
+%\journalname{Ocean Dynamics}
+\linenumbers
+\linespread{2}
+\textwidth 16cm
+\textheight 23cm
+\newcommand{\comments}[1]{}
+
+\begin{document}
+
+\title{ 
+On the modeling of wave-enhanced turbulence quantities near-shore.
+}
+
+\author{
+Saeed Moghimi et al. $^{1}$
+}
+
+\institute{\at OSU.
+}
+
+\date{Draft: \today  /  Received: date  / Accepted: date}
+% The correct dates will be entered by the editor
+
+\maketitle
+\begin{abstract}
+{
+In this research state-of-the-art \ldots
+}
+
+\keywords{SWIFT drifters \and  turbulence \and modeling \ wave  
+}
+\end{abstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\small
+\setcounter{tocdepth}{5}
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+\normalsize 
+
+
+\section{discussions}
+\label{sec:discussions}
+
+\subsection{Deep water breaking scaling} 
+
+\subsubsection{Story line:}
+\begin{enumerate}
+  \item General picture of transferring energy from atmosphere to ocean and the
+  rule of the waves. How part of energy input to waves does not dissipate right
+  away and carried by surface waves and dissipates later somewhere else (this
+  paragraph  could go to the paper introduction).
+  \item What we are considering here? Only wave effects due to breaking i.e
+  white-capping and depth induced breaking are included (no Langmuir circulation
+  or non-breaking wave effects).
+  \item How we chose the SWIFT's observation locations (Tab.
+  \ref{tab:wcap_points}) and map (Fig. \ref{fig:wcap_map})
+  \item Surface flux methods (like Craig and banner type model seems to be the
+  most widely used methods for deep water white-capping )
+  \item There are two possibilities for surface flux methods. In both case
+  surface roughness has to be specified.
+  \begin{enumerate}
+    \item Parametrization of the surface flux of energy using wind friction
+    velocity cubed ( $F_k^\mathrm{s}=\alpha^\mathrm{s} \, {u_*^\mathrm{s}}^3$)
+      \begin{enumerate}
+          \item \cite{Terrayetal96} scaling and \cite{craig1996velocity} way of
+          defining $\alpha^\mathrm{s}$ as:
+          
+          \cite{craig1996velocity} based on wind tunnel measurements and
+          \cite{Terrayetal96} proposed below relationship for
+          $\alpha^\mathrm{s}=\dfrac{\bar{c}}{u_*}$ , where $\bar{c}$ and $c_p$
+          are effective and phase speed of wave and $u_*$ is surface wind
+          friction velocity.
+          \begin{align}
+            \begin{cases}
+            \alpha^\mathrm{s} \sim 150 , & \text{if } \dfrac{c_p}{u_*} > 300 \\
+            \alpha^\mathrm{s} \sim 0.5\, \dfrac{c_p}{u_*} , & \text{if } \dfrac{c_p}{u_*} < 300 \\
+            \end{cases}
+          \end{align}
+          and $\alpha^\mathrm{s}$=100 is almost like the default for this
+          parameter.
+          
+          \item Assuming \cite{Terrayetal96} scaling for near surface
+          dissipation as $\dfrac{\epsilon \, \mathrm{H}_\mathrm{s}}{\alpha^\mathrm{s} \, u_*^3} =
+          0.3 \, \left(\dfrac{z^ \prime}{\mathrm{H}_\mathrm{s}}  \right)^{-2}$, we calculated
+          $\alpha^\mathrm{s}$
+          \begin{enumerate}
+              \item Fig: \ref{fig:alpha_from_swift}, scatter plot of
+              $\alpha^\mathrm{s}$ based on \cite{Terrayetal96} scaling.
+              $\overline{\alpha^\mathrm{s}}\approx$ 600.
+          \end{enumerate}
+          \item Using least square method on chosen , we found 
+          $\alpha^\mathrm{s}$=968 and $\gamma^\mathrm{s}$=-1.1 based on
+          available data assuming $\dfrac{\epsilon \, \mathrm{H}_\mathrm{s}}{\alpha^\mathrm{s} \,
+          u_*^3} = 0.3 \, \left(\dfrac{z^ \prime}{\mathrm{H}_\mathrm{s}} 
+          \right)^{\gamma^\mathrm{s}}$.   
+
+          \item Discuss this differences as point out by
+          \cite{feddersen2007direct}, meaning we might need to think of new
+          scaling or formulation for near-shore white-capping dissipation.
+          \item Compare the results of 3 different $\alpha^\mathrm{s}$ (100,250 and 1000)
+          for a specific surface roughness ($\nicefrac{z_0^\mathrm{s}}{
+          \mathrm{H}_\mathrm{s}}$=1.0)
+                \begin{enumerate}
+                    \item Normalized by H$_\mathrm{s}$ scatter plots
+                    (Fig: \ref{fig:alpha_non_dimentional_compare})
+                    \item Comparison of vertical profile of TKE and $\epsilon$
+                    (Fig: \ref{fig:alpha_compare_profile})
+                \end{enumerate}
+          \item Results of different$\nicefrac{z_0^\mathrm{s}}
+          {\mathrm{H}_\mathrm{s}}$= 0.2, 0.6 and 1.0 for $\alpha^\mathrm{s}$ =
+          1000 
+          \begin{enumerate}
+              \item Fig: Comparison of vertical profile of TKE and
+                   $\epsilon$ (Fig. \ref{fig:z0s_compare_profile})
+              \item Normalized by H$_\mathrm{s}$ scatter plots (Fig.
+                  \ref{fig:z0s_compare_scatter})
+              \item Discuss $\alpha^\mathrm{s}$ and surface roughness dynamical
+                   role and how they are interact.
+              \item Greater roughness induce deeper diffusion (penetration) of
+                   energy (refer to Figs above)
+              \item Fig: presenting regression lines for 2 different
+               $\alpha^\mathrm{s}$ and
+               $\nicefrac{z_0^\mathrm{s}}{\mathrm{H}_\mathrm{s}}$ how increase
+               in  $\alpha^\mathrm{s}$ move the line in parallel 
+              \item changing $\nicefrac{z_0^\mathrm{s}}{\mathrm{H}_\mathrm{s}}$
+              rotate the line  e.g. we will produce greater dissipation in
+              smaller  dissipation range in model side 
+          \end{enumerate}
+          \item Table of RMSE and BIAS for both TKE and $\epsilon$ (here or
+          appendix?)
+      \end{enumerate}
+      \item In case of access to wave model, using surface dissipation of the 
+       waves as source of the energy into the water column.
+          \begin{enumerate}
+              \item Definition of wave surface dissipation in this context.
+              Based on SWAN dissipation $S^{\mathrm{ds}}$ terms as: the dissipation rates
+              due to bottom friction $S^{\mathrm{ds,b}}$,
+              surface wave breaking $S^{\mathrm{ds,br}}$ and white capping $S^{\mathrm{ds,w}}$
+              \citep{booij2004swan}. 
+              \item We plugged in $S^{\mathrm{ds,s}}$=$S^{\mathrm{ds}}
+              -S^{\mathrm{ds,b}}$ as surface dissipation in to ocean model
+              (includes depth induced breaking too in case.
+              \item Compare vertical TKE and $\epsilon$ for four cases as: KOM
+              and WES (Tab. \ref{tab:wcap_methods})for normal and broad frequency range (Fig.
+              \ref{fig:wave_freq_range_compare_profile})
+              \item Compare wind input and white-capping dissipation for the same
+              set of SWAN cases as above (frequency range $\times$ white-capping
+              parametrization) (Fig. \ref{fig:wcap_win_wave}) 
+              \item Argue how different white-capping and wind input scheme
+              keep total energy in balance, but gives higher energy
+              dissipation rates. 
+              \item It seems there is still rooms for improvement.
+              \item Comparison of the best one for different ???
+              $\nicefrac{z_0^\mathrm{s}}{\mathrm{H}_\mathrm{s}}$
+          \end{enumerate} 
+
+          \item compare flux of energy from wave model $F_k^\mathrm{s,wave}=g \,
+          S^{\mathrm{ds,s}}$ to $F_k^\mathrm{s}=\alpha^\mathrm{s} \,
+          {u_*^\mathrm{s}}^3$ using wind velocity (for 2 typical $\alpha^\mathrm{s}$
+          like 100 and 250) with default SWAN white capping with different frequency
+          range (white-capping in spectrum tail) and the same for new
+          parametrization (Figs).   
+          \item in fact, if friction velocity cubed from wind and
+          from wave model matches. This means with increasing
+          $\alpha^\mathrm{s}$, we are multiplying the amount of energy dissipated from
+          waves by some factors.
+          It might basically point to a lack  in the theory. Can we come up
+          with a factor to energy and try energy input with that factor? 
+          \item compare  Fig: normalized by H$_\mathrm{s}$ scatter plots  for wave
+          dissipated and wind scaled
+          \item describe uncertainties for estimation of $\alpha^\mathrm{s}$ and wide range
+          of values using available theories.
+          \item It seems using wave models is the most physical sound method. Due
+          to possibility of order of magnitude errors steak to wave dissipation from
+          wave models makes sense.
+  \end{enumerate}
+
+  \item distribution of total energy into the water column methods:
+      \begin{enumerate}
+        \item Convert amount of flux to volume of energy and distribute it as tke
+        production terms in water column using below methods:
+        \item Describe \cite{sullivan2004oceanic,sullivan2007surface}
+        \item Describe \cite{kudryavtsev2008vertical}
+        \item Comparing this methods with flux methods (Fig.
+        \ref{fig:wave_vertical_prod}).
+        \item Advantages (we no longer need to specify surface roughness)
+        \item Disadvantages ??? 
+       \end{enumerate}
+\item Conclude the white-capping energy dissipation methods and usefulness of
+SWIFTs for this purpose.
+
+\end{enumerate}
+
+\begin{table}
+ \begin{center}
+   \caption{Criteria for choosing SWIFT measurement points.}
+   \label{tab:wcap_points}
+   \begin{tabular}{c c c}
+    \hline
+        &  White-capping breaking         &  Depth induced breaking   \\ \hline 
+        Water Depth      &  $>$ 5 [m]       &    $<$ 2 [m]             \\
+        Wind speed       &  $>$ 5.5 [ms-1]       &    0.0 [ms-1]          \\
+        $\mathrm{H}_\mathrm{s}/Depth$      &  $<$ 0.1        &    $>$ 0.3               \\ \hline
+   \end{tabular}
+ \end{center}
+\end{table}
+
+
+\begin{figure}
+   \centering
+   %\hspace*{-20mm}
+   \includegraphics[width=0.75
+   \textwidth]{../pics/x1-wcap/craig_banner_whitecapping/alpha/map-wcap.pdf}
+   \caption{SWIFT locations for white-capping type breaking measurements (34
+   locations and 442 point measurements for TKE and $\epsilon$.}
+   \label{fig:wcap_map}
+\end{figure}
+
+
+\begin{figure}
+   \centering
+   %\hspace*{-20mm}
+   \includegraphics[width=0.7
+   \textwidth]{../pics/x1-wcap/craig_banner_whitecapping/alpha/alpha.pdf}
+   \caption{Calculated $\alpha^\mathrm{s}$ from SWIFT measurements based on
+   \cite{Terrayetal96} scaling for near-shore white-capping ( 5[m]$>$ depth $>$
+   8[m]).
+   }
+   \label{fig:alpha_from_swift}
+\end{figure}
+
+
+\begin{figure}
+   \centering
+   %\hspace*{-20mm}
+   \includegraphics[width=0.75
+   \textwidth]{../pics/x1-wcap/craig_banner_whitecapping/alpha/02_zp2hs_non_dimen_wave-crop.pdf}
+   \caption{Comparing non-dimensionalized TKE and $\epsilon$ by wave
+   height for $\alpha^\mathrm{s}=$100, 250 and 1000. }
+   \label{fig:alpha_non_dimentional_compare}
+\end{figure}
+
+
+\begin{figure}
+   \centering
+   %\hspace*{-20mm}
+   \includegraphics[width=0.85
+   \textwidth]{../pics/x1-wcap/craig_banner_whitecapping/alpha/tke-eps0-crop.pdf} 
+   \caption{Vertical profile of TKE and $\epsilon$ for
+   $\nicefrac{z_0^\mathrm{s}}{\mathrm{H}_\mathrm{s}}$ =1.0 and
+   $\alpha^\mathrm{s}=$ 100, 250 and 1000. left: TKE, right: $\epsilon$ for
+   points 238 and 1309 (See Fig. \ref{fig:wcap_map}).
+   }  
+   \label{fig:alpha_compare_profile}
+\end{figure}
+
+
+\begin{figure}
+   \centering
+   %\hspace*{-20mm}
+   \includegraphics[width=0.85
+   \textwidth]{../pics/x1-wcap/craig_banner_whitecapping/z0s/tke-eps0-crop.pdf} 
+   \caption{Vertical profile of TKE and $\epsilon$ for
+   $\nicefrac{z_0^\mathrm{s}}{\mathrm{H}_\mathrm{s}}$=0.2, 0.4, 0.6, 1.0 and 1.6
+   with $\alpha^\mathrm{s}$=1000. left: TKE, right: $\epsilon$ for
+   points 238 and 1309 (See Fig. \ref{fig:wcap_map}).}  
+   \label{fig:z0s_compare_profile}
+\end{figure}
+
+\begin{figure}
+   \centering
+   %\hspace*{-20mm}
+   \includegraphics[width=1.0
+   \textwidth]{../pics/x1-wcap/craig_banner_whitecapping/z0s/tke22-crop.pdf} 
+   \caption{Scatter plot of TKE and $\epsilon$ for
+   $\nicefrac{z_0^\mathrm{s}}{\mathrm{H}_\mathrm{s}}$=0.2, 0.4, 0.6, 1.0 and 1.6
+   with $\alpha^\mathrm{s}$=1000. left: TKE, right: $\epsilon$ for
+   points 238 and 1309 (See Fig. \ref{fig:wcap_map}).}  
+   \label{fig:z0s_compare_scatter}
+\end{figure}
+
+\begin{figure}
+   \centering
+   %\hspace*{-20mm}
+   \includegraphics[width=0.85
+   \textwidth]{../pics/x1-wcap/swan_whitecapping/tke-eps0-crop.pdf} 
+   \caption{Effects of different frequency range and white-capping methods
+   in wave model on vertical profile of TKE and $\epsilon$ results from the
+   ocean model.   For all cases
+   $\nicefrac{z_0^\mathrm{s}}{\mathrm{H}_\mathrm{s}}$=0.2.  left:  TKE, right:
+   $\epsilon$ for points 238 and 1309 (See Fig. \ref{fig:wcap_map}).} 
+   \label{fig:wave_freq_range_compare_profile}
+\end{figure}
+
+\begin{figure}
+   \centering
+   %\hspace*{-20mm}
+   \includegraphics[width=0.9
+   \textwidth]{../pics/x1-wcap/swan_whitecapping/wcap_sim-win_sim-hs_sim-crop.pdf} 
+   \caption{Comparison of white-capping (a), wind input (b) and Significant wave
+   hight (c), for different frequency range, white-capping methods. (See Fig.
+   \ref{fig:wcap_map} for locations and Tab. \ref{tab:wcap_methods} for wave
+   model settings).}
+   \label{fig:wcap_win_wave}
+\end{figure}
+
+\begin{table}
+ \begin{center}
+   \caption{Wave model source and sink terms setting.}
+   \label{tab:wcap_methods}
+   \begin{tabular}{l c c}
+    \hline
+          &     Wind input       &  White-capping  \\
+         \hline KOM    &   \cite{snyder1981array}  &  
+         \cite{komen1984existence}
+         \\
+                WES \citep{mulligan2008whitecapping}  &   \cite{yan1987improved}    
+                &\cite{alves2003performance} \\\hline
+   \end{tabular}
+ \end{center}
+\end{table}
+
+\begin{figure}
+   \centering
+   %\hspace*{-20mm}
+   \includegraphics[width=0.9
+   \textwidth]{../pics/x1-wcap/swan_whitecapping/surf_flux2-crop.pdf} 
+   \caption{Comparison of surface energy flux to ocean model using wind friction
+   velocity cubed $F_k^\mathrm{s,wind}=\alpha^\mathrm{s} \, {u_*^\mathrm{s}}^3$ 
+   for $\alpha^\mathrm{s}$=100, 250 and 1000 and surface energy flux using wave
+   model surface dissipation  $F_k^\mathrm{s,wave}=g \, S^{\mathrm{ds,s}}$. (See
+   Fig. \ref{fig:wcap_map} for locations).}
+   \label{fig:surface_flux_compare}
+\end{figure}
+
+% \begin{figure}
+%    \centering
+%    %\hspace*{-20mm}
+%    \includegraphics[width=0.7
+%    \textwidth]{../pics/x1-wcap/total_energy_methods/tke-eps0-crop.pdf} 
+%    \caption{Effects of different frequency range and white-capping methods
+%    in wave model on vertical profile of TKE and $\epsilon$ results from the
+%    ocean model.   For all cases
+%    $\nicefrac{z_0^\mathrm{s}}{\mathrm{H}_\mathrm{s}}$=0.2.  left:  TKE, right:
+%    $\epsilon$ for points 238 and 1309 (See Fig. \ref{fig:wcap_map}).} 
+%    \label{fig:wave_vertical_prod}
+% \end{figure}
+
+
+\begin{table}
+ \begin{center}
+   \caption{The surface roughness and $\alpha^\mathrm{s}$ parameter proposed in
+   the literature.}
+   \label{tab:surface_roughness_alpha_litrature}
+     \begin{tabular}{l p{3cm} c p{5cm} }
+    %\begin{tabular}{l l p{3.5cm}  }
+      \hline
+                                    &  ${z_0^\mathrm{s}}$    &  $\alpha^\mathrm{s}$ & specifications\\ \hline 
+      
+      \cite{craig1994modeling}      &  ${z_0^\mathrm{s}}=0.1 m $            & 100 $\sim$ 150 & using \cite{MellorYamada82} turbulence model
+\\
+      \cite{GemmrichFarmer99}       &  ${z_0^\mathrm{s}}=0.2 m $            & * & 
+      Micro-structure measurements under large waves ($\mathrm{H}_\mathrm{s}=$3.5 m)  
+      \\
+      \cite{burchard2001simulating} &  $0.2 <  {z_0^\mathrm{s}} / {\mathrm{H}_\mathrm{s}} <1$  & 100 & 
+      $k-\epsilon$ turbulence model with  modified Schmidt number   \\
+      \cite{Terrayetal99}           &  ${z_0^\mathrm{s}} / {\mathrm{H}_\mathrm{s}}  =0.85$     & 100& 
+      \cite{craig1994modeling} with modified length scale
+\\
+      \cite{Umlauf03a}              &  ${z_0^\mathrm{s}} / {\mathrm{H}_\mathrm{s}}  \simeq 1$   &100 & 
+      $k-\omega$ via generic length scale model
+   \\
+      \cite{kantha2004effect}       &  ${z_0^\mathrm{s}} / {\mathrm{H}_\mathrm{s}} = 1.6 $      &100 &
+      Assuming fully developed sea
+      
+\\
+      \cite{stips2005m}             &  ${z_0^\mathrm{s}} / {\mathrm{H}_\mathrm{s}}  \ll  1$    &100&  
+      Method of \cite{Umlauf03a} for low wind condition in small lake
+\\
+      \cite{feddersen2007vertical}     &  Not calculated   & 250 &  
+     Based on observations in 3.5m water depth proposing different scaling for
+     white capping breaking in near-shore regions.
+     \\
+      \cite{jones2008influence}     &  ${z_0^\mathrm{s}} / {\mathrm{H}_\mathrm{s}} = 1.3 $     & 60 &  
+      $k-\omega$  based on \cite{Umlauf03a} for shallow wind forced environment
+      with tide   \\      
+      
+      \cite{newberger2007forcing2}  &0.2, 0.3, 0.5 [m] and  ${z_0^\mathrm{s}} / {\mathrm{H}_\mathrm{s}} =
+      0.15 $ & 100 & $k-kl$ model of \cite{MellorYamada82} for surf-zone 
+      \\
+      
+      \cite{moghimi2013direct}  &${z_0^\mathrm{s}} / {\mathrm{H}_\mathrm{s}} = 0.3 $ & 100 &  $k-\omega$ 
+      based on \cite{Umlauf03a} for surf-zone     \\
+      
+      \hline
+     \end{tabular}
+ \end{center}
+$^{*}$ Instead of the surface flux of the turbulent kinetic energy to be
+proportional to the cube of the surface friction velocity with $\alpha^\mathrm{s}$=100,
+They used $c_p u_*^2$ where $c_p$= 0.8[ms-1] is the effective phase speed of waves
+acquiring energy from the wind (Gemmrich et al. 1994)
+\end{table}
+
+
+
+
+
+\subsection{Shallow water depth induced breaking}
+\subsubsection{Story line:}
+\begin{enumerate}
+    \item Classification based on
+    $\gamma_{br}=\nicefrac{\mathrm{H}_\mathrm{s}}{Depth}$
+    \item Consistent pattern of $\dfrac{F_k^\mathrm{s,wave}}{g
+    S^{\mathrm{ds,s}}} \leq $ 0.2 for diffrent range of $\gamma_{br}$ and number
+    of points.
+    \item 
+\end{enumerate}
+
+
+\comments{
+
+Modeling challenges:
+
+\begin{enumerate}[label=\alph*)]
+  \item Original Craig and Banner method using ${u_*^\mathrm{s,wind}
+  }^3$ depends on surface roughness and $\alpha^\mathrm{s}$
+  \item Calculating $F_k$ from white-capping (wave model surface dissipation)
+  with the same surface roughness shows far less energy
+  \item Laking energy due to not considering high frequency tail of the spectrum
+  could ruin our simulation
+  \item Effects of adding high frequency tail improves the results however still
+  off
+  \item Different white capping terms might helps. In the new term the wind
+  input term and white-capping terms are more or less in balance but we see
+  larger values for both terms.
+  \item the best we can got for explicit energy input is presented as with this
+  method
+  \item What if we calculate friction velocity based on dissipated waves and use
+  the same eta and check the system again. 
+  \item in fact comparing friction velocity cubed from wind and from wave model
+  dissipated energy matches. This means with increasing eta we are multiplying
+  the amount of energy dissipated from waves. It might basically point to a lack
+  in the theory. Can we come up with a factor to energy and try energy input
+  with that factor? 
+  \item how about total energy methods? Kudritsev and sulivan ? 
+\end{enumerate}
+
+Graphs:
+\begin{enumerate}
+  \item All points : frequency range, white capping methods, craig with same 
+  \item 
+
+\end{enumerate}
+
+\subsubsection{Surface flux of energy from wind friction velocity  }
+In this type of approach turbulnce model in ocean side remethod calculation of
+surface flux and surface roughness includes diffrent constants here we are discusing how these constants were choosen.
+
+A relatively wide range of suggested values for surface roughness length could be found in literature. \cite{stips2005m}
+mentioned that the magnitude of $z_0^\mathrm{s}$ depends on the method of observation. For example $z_0^\mathrm{s}=\mathrm{H}_\mathrm{s}$ was reported
+from a fixed tower measurement and $z_0^\mathrm{s}=0.2m$ was calculated with a floating instrument in the sea state with
+$\mathrm{H}_\mathrm{s}=5m$. On the other hand 
+A comparative study for a set of different surface roughness equal to 0.2, 0.3, 0.5 and 0.2 $\mathrm{H}_\mathrm{s}$ is given by
+\cite{newberger2007forcing2}.  
+
+A relatively wide range of suggested values for surface
+roughness length is available in  literature starting from a few centimeters,
+e.g. $ ~ 0.1m$ by CB94, up to values greater than significant wave height, $\mathrm{H}_\mathrm{s}$
+(see table \ref{tab:surface_roughness}).  \cite{stips2005m} mentioned that the
+magnitude of  $z_0^\mathrm{s}$ depends on the method of observation. For example
+$z_0^\mathrm{s}=\mathrm{H}_\mathrm{s}$ was reported from a fixed tower measurement and $z_0^\mathrm{s}=0.2m$ was
+calculated with a floating instrument in the sea state with $\mathrm{H}_\mathrm{s}=5m$.  
+
+
+
+
+
+\subsubsection{$\alpha^\mathrm{s}$ From the litrature:}
+\cite{craig1996velocity} based on wind tunnel measurments and
+\cite{Terrayetal96} proposed below relationship for $\alpha^\mathrm{s}=\dfrac{\bar{c}}{u_*}$ , where $\bar{c}$ is
+effective wave speed and $u_*$ is surface wind friction velocity.
+ 
+\begin{align}
+\begin{cases}
+\alpha^\mathrm{s} \sim 150 , & \text{if } \dfrac{c_p}{u_*} > 300 \\
+\alpha^\mathrm{s} \sim 0.5\, \dfrac{c_p}{u_*} , & \text{if } \dfrac{c_p}{u_*} < 300 \\
+\end{cases}
+\end{align}
+
+However $\alpha^\mathrm{s}=100$ were reported frequently in the litrature
+in diffrent applications ranging from small lakes to open ocean
+\citep{burchard2001simulating,Umlauf03a,kantha2004effect,stips2005m}.
+
+\cite{jones2008influence} employed a two-equation $k-\omega$ turbulence model
+for shallow wind forced environment with tide and suggetsed $\alpha^\mathrm{s}=60$ with
+surface roughness of ${z_0^\mathrm{s}} / {\mathrm{H}_\mathrm{s}} = 1.3$.
+
+\cite{feddersen2007vertical}  evaluate $\alpha^\mathrm{s}$ based on nearshore setting data
+gathering in water depth about 3.5 [m]. The applied \cite{Terrayetal96} scaling
+for near surface dissipation as:
+\begin{align}
+\dfrac{\epsilon \, \mathrm{H}_\mathrm{s}}{\alpha^\mathrm{s} \, u_*^3} =
+0.3 \, \left(\dfrac{z^ \prime}{\mathrm{H}_\mathrm{s}}  \right)^{-2} , 
+\label{eq:terray_scaling}
+\end{align}
+and suggetsted $\alpha^\mathrm{s}=250$. They argued that perhaps the scaling of surface
+energy flux as function of surface friction velocity cubed in shallow nearshore
+waters is diffrent from deep ocean.
+
+From SWIFT measurment points we chose the whitecapping breaking following
+conditions in Tab. \ref{tab:chosen_points}
+
+
+
+The location of the data points chosen for whitecapping type breaking show in
+Fig. \ref{fig:wcap_map}.
+
+\begin{figure}
+   \centering
+   %\hspace*{-20mm}
+   \includegraphics[width=0.6
+   \textwidth]{../pics/x1-wcap/craig_banner_whitecapping/02_alpha_compare/map-wcap.pdf}
+   \caption{SWIFT locations for whitecapping type breaking measurments (34
+   locations and 442 measurments for TKE and $\epsilon$.}
+   \label{fig:wcap_map}
+\end{figure}
+
+We calculated $\alpha^\mathrm{s}$ parameter using SWIFT's dissipation measurments for 34
+chosen  points for whitecapping type breaking using equation
+\ref{eq:terray_scaling} (Fig. \ref{fig:alpha_from_swift}). It should be noted we
+have used simple formula to evalute wind friction velocity \citep{wu1994sea}.
+Simple average of this parameter gives $\alpha^\mathrm{s}$=594. This is more than two times
+greater than resulted values by \cite{feddersen2007direct}. 
+
+% \begin{figure}
+%    \centering
+%    %\hspace*{-20mm}
+%    \includegraphics[width=0.45
+%    \textwidth]{../pics/x1-wcap/craig_banner_whitecapping/01_alpha/alpha-crop.pdf}
+%    \caption{Calculated $\alpha^\mathrm{s}$ from SWIFT measurments based on
+%    \cite{Terrayetal96} scaling for nearshore whitecapping ( 5[m]$>$ depth $>$
+%    8[m]).
+%    }
+%    \label{fig:alpha_from_swift}
+% \end{figure}
+
+
+% \begin{figure}
+%    \centering
+%    %\hspace*{-20mm}
+%    \includegraphics[width=0.55
+%    \textwidth]{../pics/x1-wcap/craig_banner_whitecapping/02_alpha_compare/zp2h-terray-scaling.pdf}
+%    \caption{Comparing results for \cite{Terrayetal96} scaling for $\alpha^\mathrm{s}=$100,
+%    250 and 600. }
+%    \label{fig:alpha_compare}
+% \end{figure}
+% 
+%  
+% \begin{figure}
+%    \centering
+%    %\hspace*{-20mm}
+%    \includegraphics[width=0.55
+%    \textwidth]{../pics/x1-wcap/craig_banner_whitecapping/03_z03_comparison/tke-eps0-z0s_comp.pdf}
+%    \caption{TKE and $\epsilon$ vertical profile for different surface roughness.
+%    Only the first two selected location from SWIFT measurments shown here.
+%    }
+%    \label{fig:z0s_compare}
+% \end{figure}
+ 
+
+So far we come up with the best fit $\alpha^\mathrm{s}$=600 and perhaps surface roughness
+$z_0^\mathrm{s}=0.6 \mathrm{H}_\mathrm{s} \sim 1.0 \mathrm{H}_\mathrm{s}$.
+Now let see if we replace surafecfulx of TKE with energy dissipated from waves
+which should be more physicaly sound way to handle energy tranfwer from
+atmospher to ocean.
+
+\subsubsection{Whitecapping dissipation from wave model}
+what to discusse here:
+\begin{enumerate}[label=\alph*)]
+  \item effects of frequency range
+  \item effects of whitecapping and wind input methods
+  \item comparison of diffrent two-equation model!
+\end{enumerate}
+
+
+
+capture outer surfzone
+deep water breaking (whitecapping type breaking) following below mention
+creteria is given in Fig \ref{fig:alpha_from_swift}.
+
+\subsection{Shallow water breaking (inner surf-zone)}
+\begin{enumerate}[label=\alph*)]
+  \item 
+  \item 
+\end{enumerate}
+
+
+}
+
+\section{Summary}
+\label{sec:summary}
+
+
+\begin{acknowledgements}
+The author would like to acknowledge
+\begin{enumerate}
+  \item GOTM model with implemented wave
+forcing from Prof. Alstair Jenkins.
+  \item DARLA project and ONR ref. number
+  \item \ldots 
+\end{enumerate}
+
+\end{acknowledgements}
+
+
+\bibliographystyle{spbasic}
+\bibliography{References_all}
+
+\end{document}
+
+
+\comments { 
+ 
+%%%%%%%%%%%%% sample formula for latex
+
+\bigskip{}
+
+$\dfrac{g}{c}$
+
+$k-\omega $   
+
+$ \nicefrac{x}{2}$ 
+
+$\left(F_{x,n}^{\mathrm{fric}},F_{y,n}^{\mathrm{fric}}\right)$
+
+
+\begin{align*}
+\mathcal{L}^{\mathrm{RS}} & =\alpha^{\mathrm{RS}}H_{\mathrm{s}},\\
+\\\mathcal{L}^{\mathrm{ds,b}} & 
+=\alpha^{\mathrm{ds,b}}\delta_{\mathrm{w}},\\
+\\\mathcal{L}^{\mathrm{ds,s}} & 
+=\alpha^{\mathrm{ds,s}}H_{\mathrm{s}}.\end{align*}
+
+\begin{align}
+F_{\alpha,n}^{\mathrm{ds}} & =\dfrac{k_{\alpha}g}{\left\Vert
+\mathbf{k}\right\Vert
+c}\left(f_{n}^{\mathrm{ds,b}}\left(z_{n}+D\right)S^{\mathrm{ds,b}}+f_{n}^{\mathrm{ds,s}}\left(\eta-z_{n}\right)
+S^{\mathrm{ds,s}} \right)
+\label{eq:wav-momentum}
+\end{align}
+
+
+\begin{table}
+\noindent \begin{centering}
+\footnotesize
+\begin{tabular}{l l l l }
+\hline 
+ & $u_{\alpha,n}$ & $u_{\alpha,n}^{\mathrm{mass}}$ & 
+\textrm{$F_{\alpha,n}^{\mathrm{wave}}$}
+\tabularnewline
+%\hline
+\hline 
+standard \\
+GETM & $=u_{\alpha,n}$ & $=u_{\alpha,n}$ & $=0$\tabularnewline
+%\hline 
+radiation
+stress & $=\overline{u}_{\alpha,n}^{\mathrm{L}}$ & $=\overline{u}_{\alpha,n}^{\mathrm{L}}$ & $=-\dfrac{\partial}{\partial x_{\beta}}\left\{ h_{n}\left\Vert \mathbf{k}\right\Vert E\left[\left(f^{\mathrm{cc}}f^{\mathrm{cs}}\right)_{n}\dfrac{k_{\alpha}k_{\beta}}{\left\Vert \mathbf{k}\right\Vert ^{2}}-\delta_{\alpha\beta}\left(\left(f^{\mathrm{ss}}f^{\mathrm{sc}}\right)_{n}-\dfrac{f_{n}^{\mathrm{RS}}\left(\eta-z_{n}\right)}{2\left\Vert \mathbf{k}\right\Vert h_{n}}\right)\right]\right\} $\tabularnewline
+%\hline 
+vortex
+force & $=\overline{u}_{\alpha,n}^{\mathrm{E}}$ & $=\overline{u}_{\alpha,n}^{\mathrm{L}}$ & $=h_{n}\overline{u}_{\beta,n}^{\mathrm{Stokes}}\left(\dfrac{\partial\overline{u}_{\beta,n}^{\mathrm{E}}}{\partial x_{\alpha}}\right)_{z}-h_{n}\left(\dfrac{\partial}{\partial x_{\alpha}}\right)_{z}\left\{ \dfrac{\left\Vert \mathbf{k}\right\Vert E}{\sinh\left(2\left\Vert \mathbf{k}\right\Vert \left(\eta+D\right)\right)}\right\} +F_{\alpha,n}^{\mathrm{ds}}$\tabularnewline
+\hline
+\end{tabular}
+\par\end{centering}
+
+\caption{Juxtaposition of formulations\label{tab:methods}\protect \\
+Summation is carried out over repeated indices with $\alpha,\beta\in\left\{ x,y\right\} $
+and $x_{x}=x$, $x_{y}=y$, $u_{x}=u$, $u_{y}=v$. Please see sections
+\ref{sec:vf_detail} and \ref{sec:rs_detail} for the description of specific
+terms.}
+
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%% END of Sample section % %%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%% >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   cut from intro:
+
+
+Dissipating gravity waves modifing turbulence quntities  
+
+
+%Why this is important in shallow water\\
+
+
+Modification of turbulence quantities inside water column enhances the vertical
+mixing and directly affects hydrodynaimcs and sediment transport in the vicinity
+of the breaking event which also modifyes beach evolution process. Several
+studies show the importance of inclusion of wave generated turbulence and its
+effects on sediment resuspention on increasing of total sediment transport in
+surfzone \citep[e.g.][]{roelvink1989bar,yoon2010large}.
+
+
+Turbulent Kenematic energy generate by breaking waves and shear production are
+the main source of  
+
+ The TKE production due to breaking waves could be orders of
+magnitude larger than shear production close to the surface \citep{Terrayetal96}.  
+
+
+
+Experiments:
+The Wave breaking turbulence were studied in wave flumes in a controled
+environents by many researchers \citep[e.g.][]{roelvink1989bar,yoon2010large}.
+There are also field observations of wave turbulence reported
+\citep[e.g.][]{goeorge et al, 1994; Trowbridge and elgar, 2001;}. On the
+other hand limitations in operation of the equipments and controling of
+environment conditions in nature, decreases the quality of these kind of field
+measurments(\cite{yoon2010large}).
+
+Acoustic Doppler Velocimetry (ADV) and Accoustic Doppler
+Current Profilers (ADCP) have been extensively applied for turbulence
+measurements in field and lab experiments. Coarse spatial resolution and
+background noise plus high rate of aeration close to the surface and at the
+trough level prevents the instrument to resolve much of the detail 
+structures in the last 20 cm close to the surface \citep{wang2013free}.
+
+
+\cite{yoon2010large} show similar order of magnitude between
+$\bar{K}^{1/2}$ and $(\epsilon_{w}/\rho)^{1/3}$ from their large scale
+flume experiment. Where :
+\begin{align}
+\bar{K}=\dfrac{1}{h} \int_{0}^{h} \bar{k}\, dx
+\end{align}
+and $\bar{k}$ is the turbulent kinetic energy (TKE). $\epsilon_{w}$ is total 
+wave energy dissipation. They also stated that their quantitative comparisons
+supports the hypothesis that wave energy dissipation is the main source of TKE
+production in the surfzone\citep[e.g.][]{govender2002video}. From their results,
+transition from spilling to plunging lessen the amount of transported TKE near
+the bottom. 
+
+
+
+This set of data:
+
+Now the question is how we can incorporate the effects of surface breaking wave
+in nearshore application. The majority of publication on the wave induced
+turbulence and mixing were on upper ocean. 
+
+
+Review on 1DV turbulence model reproducing wave effects:\\  
+
+Main purpose:
+The main goal of this paper is to provide a base for application and comparison
+of methods for enhacing wave  breaking 
+
+
+Here we aim for comparisons of TKE and EPS from diffrent models. All the wave
+related forcing is implemented. We also take into account time depenednt tidal
+elevation and velocities in orther to be fair when comparing production due to
+current shear, bottom friction and surface wave induced turbulence.
+
+
+assuming all wave dissipation enters to the water column at the same place. in
+the other word there would be no replacing of the energy e.g. by rollers and so
+on.
+
+
+Litrature
+Surface waves argued to be on of the main mechanisms of exchanging energy and
+momntum between atmospher and ocean. In spite of many experimental and modeling
+reseach have already done on wind, wave and current coupling mechanisms, the
+lack of a robost conceptual model and physical explanation for interplay of
+different phenomena in this area is still obvious.
+Understanding and modeling of the turbulenec quantities in nearshre and surfzone
+area is even less studied.
+
+
+
+Rascle,2012
+
+
+
+
+
+Observations of nearshore wave dissipation over muddy sea beds
+Vertical structure of dissipation in the nearshore
+The Effect of Wave Breaking on Surf-Zone Turbulence and Alongshore Currents: A Modeling Study
+An application of the E-ε turbulence model for studying coupled air-sea boundary-layer structure
+Modeling the influence of wave‐enhanced turbulence in a shallow tide‐and wind‐driven water column
+Simulating the wave-enhanced layer under breaking surface waves with two-equation turbulence models
+The influence of whitecapping waves on the vertical structure of turbulence in a shallow estuarine embayment
+Structure and modeling of surf zone turbulence due to wave breaking
+Near-surface wind-induced mixing in a mine lake
+
+Title:
+
+Modeling of the effects of the breaking waves on the turbulence structure in front of a tidal inlet.
+
+Modeling of the turbulence structure enhancement due to active breaking waves.
+
+On the modeling of wave-enhanced turbulence under surfzone breaking waves.
+
+Modeling of active wave breaking turbulence enhancement   
+
+
+
+TOC:
+
+Introduction
+
+Why this is important
+
+Literature
+
+Case study
+
+        NRI
+
+       
+
+Observations
+
+SWIFT data
+
+Methods, models and governing equation
+
+ROMS
+
+SWAN
+
+GOTM
+
+   
+
+Results
+
+        final graphs of comparison of best craig and banner plus other methods
+
+        How to choose which one is better
+
+    ,m nxjk.bj iopbugeirfo;iaetu-aw t;FNM,.ARFGB9A   
+
+Discussion
+
+Compare amount of energy from dissipation should goes to water column
+
+        Did not considering high frequency tial, how much this could affect the results?
+
+
+categorize points based on amount of energy released
+
+       
+
+Conclusion
+
+
+In this method calculation of surface flux and surface roughness includes
+diffrent constants here we are discusing how these constants were choosen.
+
+We desiged a broad range of sensivity analysis for both $\alpha^\mathrm{s}$ and $z_0^\mathrm{s}$.
+Based on former researchs for the proposed range of these parametes in
+litrature for $\alpha^\mathrm{s}$ values for 70 (jones,2008) $\sim$ 150 (prposed by
+craig,1996 and Tray,1996) could be find. This parameter is based on wave age
+parameters and for full developed system proposed arounf 100. Since for all
+chosen points local wind >5.5 [ms-1] were chosen to be sure we are choosing the
+right parameter we tested range of 70-200. 
+
+
+ }
+
