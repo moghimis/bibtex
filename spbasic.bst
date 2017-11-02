@@ -1077,8 +1077,8 @@ FUNCTION {article}
       format.pages output
     }
   if$
-  %format.doi output   Saeed rem
-  %format.url output   Saeed rem
+  format.doi output
+  format.url output
   format.note output
   format.eprint output
   fin.entry
