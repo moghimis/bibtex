@@ -1,0 +1,112 @@
+% Choose the journal abbreviation for the journal you are
+% submitting to:
+% jgrga JOURNAL OF GEOPHYSICAL RESEARCH
+% gbc   GLOBAL BIOCHEMICAL CYCLES
+% grl   GEOPHYSICAL RESEARCH LETTERS
+% pal   PALEOCEANOGRAPHY
+% ras   RADIO SCIENCE
+% rog   REVIEWS OF GEOPHYSICS
+% tec   TECTONICS
+% wrr   WATER RESOURCES RESEARCH
+% gc    GEOCHEMISTRY, GEOPHYSICS, GEOSYSTEMS
+% (If you are submitting to a journal other than jgrga,
+% substitute the initials of the journal for "jgrga" below)
+%\documentclass[draft,jgrga]{AGUTeX}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% optional article formats author might want to use
+% To produce a galley version:
+% \documentclass[galley,jgrga]{AGUTeX}
+% To produce a two columned version:
+% \documentclass[jgrga]{AGUTeX}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%oceandynamics
+\documentclass[final]{svjour3}
+%\usepackage{newclude}
+%\documentclass[twocolumn,final]{svjour3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{newclude}
+%
+%use with \include*{filename}      % will not add page breaks
+\smartqed
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{natbib}
+\usepackage{amsmath}
+\usepackage{subfig}
+\usepackage{nicefrac}
+\usepackage{lineno}
+\usepackage{rotating}
+\usepackage{enumitem}
+\usepackage{multirow}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+
+
+%\journalname{Ocean Dynamics}
+\linenumbers
+\linespread{2}
+\textwidth 16cm
+\textheight 23cm
+\newcommand{\comments}[1]{}
+
+\begin{document}
+
+\title{ 
+On the modeling of wave-enhanced turbulence quantities near-shore.
+}
+
+\author{
+Saeed Moghimi et al. $^{1}$
+}
+
+\institute{\at OSU.
+}
+
+\date{Draft: \today  /  Received: date  / Accepted: date}
+% The correct dates will be entered by the editor
+
+\maketitle
+\begin{abstract}
+{
+In this research state-of-the-art \ldots
+}
+
+\keywords{SWIFT drifters \and  turbulence \and modeling \ wave  
+}
+\end{abstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\small
+\setcounter{tocdepth}{5}
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+\normalsize 
+
+
+\section{discussions}
+\label{sec:discussions}
+
+
+\end{acknowledgements}
+
+
+\bibliographystyle{spbasic}
+\bibliography{References_all}
+
+\end{document}
+
+
+\comments { 
+ 
+
+
+ }
+
